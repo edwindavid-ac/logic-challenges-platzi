@@ -16,6 +16,7 @@ public class Number_reduction {
 		 * Steps = 5
 		 */
 		
+		
 		Scanner user_input = new Scanner(System.in);
 		System.out.println("Please enter the number: ");
 		int num = user_input.nextInt();
@@ -25,15 +26,15 @@ public class Number_reduction {
 			if (num%2 == 0) {
 				num = num/2;
 			}
-			else if (num%2 != 0) {
-				if (num%4 == 3) {
+			else {
+				if (num%4 == 3 && num > 3) {
 					num = num + 1;
 				}
 				else {
 					num = num - 1;
 				}
 			}
-			steps++;
+			steps = steps + 1;
 		}
 		System.out.println("Reduction: " + num + " - Steps: " + steps);
 	}

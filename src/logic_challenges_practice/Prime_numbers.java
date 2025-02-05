@@ -21,27 +21,39 @@ public class Prime_numbers {
 		
 		Scanner user_input = new Scanner(System.in);
 		Vector<Integer> primes = new Vector<Integer>();
-		
-		primes.addElement(2);
+
 		System.out.println("Enter the number: ");
 		int num = user_input.nextInt();
-		int com = 0;
+		int max = 0, i = 0, n = 0, module = 0, count = 0;
 		
-		if (num == 1 || num < 1) {
-			System.out.println("The number " + num + " is not prime");
-		}
-		else if (num == 2) {
-			System.out.println("The primes are: " + primes);
+		if (num <= 1 || num <= 2) {
+			if (num == 2) {
+				primes.addElement(2);
+				System.out.println("Primes: " + primes);
+			}
+			else {
+				System.out.println("The number: " + num + " is not prime");
+			}
 		}
 		else {
-			for (int i = 3 ; i <= num ; i++) {
-				for (int n = 2 ; i <= 9 ; i++) {
-					if (i%n == 0) {com++;}
+			primes.addElement(2);
+			max = num;
+			for (i = 3 ; i <= max ; i=i+2) {
+				for (n = 1 ; n <= i ; n=n+1) {
+					module = i%n; 
+					if (module == 0) {
+						count++;
+					}
 				}
-				if (com == 1) {primes.addElement(i);}
-				com = 0;
+				if (count == 2) {
+					primes.addElement(i);
+					count = 0;
+				}
+				else {
+					count = 0;
+				}
 			}
-			System.out.println("The primes are: " + primes);
+			System.out.println("Primes: " + primes);
 		}
 	}
 }
